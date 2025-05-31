@@ -61,13 +61,47 @@ export class WhatsAppHandler {
     return `¿Enviar pedido ${this.orderManager.currentOrder.code} a WhatsApp?\n\nRevise la información antes de enviar.`;
   }
   
+  // Método para obtener el emoji según el ID del producto
+  getProductEmoji(item) {
+    const productId = item.id;
+    
+    // Mapeo basado en los IDs de tu ProductManager
+    if (productId >= 1 && productId <= 5) {
+      // Alitas (IDs 1-5)
+      return '🍗';
+    } else if (productId >= 6 && productId <= 9) {
+      // Boneless (IDs 6-9)
+      return '🍗';
+    } else if (productId >= 10 && productId <= 12) {
+      // Papas (IDs 10-12)
+      return '🍟';
+    } else if (productId >= 13 && productId <= 17) {
+      // Bebidas (IDs 13-17)
+      return '🥤';
+    }
+    
+    // Fallback: detectar por nombre si el ID no coincide
+    const productName = item.name ? item.name.toLowerCase() : '';
+    
+    if (productName.includes('papa') || productName.includes('fries')) {
+      return '🍟';
+    }
+    
+    if (productName.includes('frappe') || productName.includes('refresco') || 
+        productName.includes('agua') || productName.includes('bebida')) {
+      return '🥤';
+    }
+    
+    // Por defecto, emoji de pollo
+    return '🍗';
+  }
+  
   formatMessage() {
     const emojis = {
       shopping: '🛍️',
       package: '📦',
       person: '👤',
       phone: '📞',
-      chicken: '🍗',
       money: '💵',
       note: '📝',
       card: '💳',
@@ -79,9 +113,10 @@ export class WhatsAppHandler {
     
     const { client, items, notes, code, total } = this.orderManager.currentOrder;
     
-    const itemsText = items.map(item => 
-      `${emojis.chicken} *${item.quantity}x* ${escapeHtml(item.name)} - $${(item.price * item.quantity).toFixed(2)}`
-    ).join('\n');
+    const itemsText = items.map(item => {
+      const productEmoji = this.getProductEmoji(item);
+      return `${productEmoji} *${item.quantity}x* ${escapeHtml(item.name)} - $${(item.price * item.quantity).toFixed(2)}`;
+    }).join('\n');
     
     let message = `${emojis.shopping} *Nuevo Pedido - EntreAlas* ${emojis.shopping}\n\n` +
       `${emojis.package} *Código:* ${code}\n\n`;

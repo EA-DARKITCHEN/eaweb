@@ -13,26 +13,27 @@ export class ProductManager {
         { id: 1, name: "Alitas Mango Habanero", price: 85 },
         { id: 2, name: "Alitas BBQ", price: 85 },
         { id: 3, name: "Alitas Salsa Brava", price: 85 },
-        { id: 4, name: "Alitas Estilo Brayan", price: 85 },
-        { id: 5, name: "Aderezo Rancha Ext.", price: 10}
+        { id: 4, name: "Alitas Queso Parmesano", price: 85 },
+        { id: 5, name: "Alitas Estilo Brayan", price: 85 },
+        { id: 6, name: "Aderezo Rancha Ext.", price: 10}
       ],
       boneless: [
-        { id: 6, name: "Boneless Mango Habanero", price: 75 },
-        { id: 7, name: "Boneless BBQ", price: 75 },
-        { id: 8, name: "Boneless Salsa Brava", price: 75 },
-        { id: 9, name: "Boneless Queso Parmesano", price: 75 }
+        { id: 7, name: "Boneless Mango Habanero", price: 75 },
+        { id: 8, name: "Boneless BBQ", price: 75 },
+        { id: 9, name: "Boneless Salsa Brava", price: 75 },
+        { id: 10, name: "Boneless Queso Parmesano", price: 75 }
       ],
       papas: [
-        { id: 10, name: "Papas Delgadas", price: 35 },
-        { id: 11, name: "Papas Onduladas", price: 35 },
-        { id: 12, name: "Papas con Queso", price: 45 }
+        { id: 11, name: "Papas Delgadas", price: 35 },
+        { id: 12, name: "Papas Onduladas", price: 35 },
+        { id: 13, name: "Papas con Queso", price: 45 }
       ],
       bebidas: [
-        { id: 13, name: "Frappe Moka", price: 40 },
-        { id: 14, name: "Frappe Oreo", price: 40 },
-        { id: 15, name: "Frappe Fresa", price: 40 },
-        { id: 16, name: "Refresco 600ml", price: 25 },
-        { id: 17, name: "Agua Mineral", price: 20 }
+        { id: 14, name: "Frappe Moka", price: 40 },
+        { id: 15, name: "Frappe Oreo", price: 40 },
+        { id: 16, name: "Frappe Fresa", price: 40 },
+        { id: 17, name: "Refresco 600ml", price: 25 },
+        { id: 18, name: "Agua Mineral", price: 20 }
       ]
     };
   }
